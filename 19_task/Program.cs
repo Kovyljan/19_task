@@ -70,9 +70,9 @@ namespace _19_task
                 foreach (var g in gr)
                 {
                     Console.WriteLine($"{g.Cod}, {g.Brand} , {g.CPU}, {g.FrequencCPU}, {g.DDR} , {g.SSD}, {g.Graphics}, {g.Cost}, {g.Count}");
-                }                1
+                }
             }
-            1Console.WriteLine();
+            Console.WriteLine();
 
             Comp costmax_comp = list_comp.OrderBy(max => max.Cost).Last();
             Comp costmin_comp = list_comp.OrderBy(min => min.Cost).First();
