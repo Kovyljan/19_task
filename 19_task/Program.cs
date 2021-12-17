@@ -47,20 +47,32 @@ namespace _19_task
             }
             Console.WriteLine();
 
+            //Console.WriteLine("Список компьютеров по процессорам:");
+            //var cpugroup_comp = from lc in list_comp
+            //                    group lc by lc.CPU into newGroup
+            //                    orderby newGroup.Key
+            //                    select newGroup;
+            //foreach (var nameGroup in cpugroup_comp)
+            //{
+            //    Console.WriteLine($"{nameGroup.Key}");
+            //    foreach (var lc in nameGroup)
+            //    {
+            //        Console.WriteLine($"{lc.Cod}, {lc.Brand} , {lc.CPU}, {lc.FrequencCPU}, {lc.DDR} , {lc.SSD}, {lc.Graphics}, {lc.Cost}, {lc.Count}");
+            //    }
+            //}
+            //Console.WriteLine();
+
             Console.WriteLine("Список компьютеров по процессорам:");
-            var cpugroup_comp = from lc in list_comp
-                                group lc by lc.CPU into newGroup
-                                orderby newGroup.Key
-                                select newGroup;
-            foreach (var nameGroup in cpugroup_comp)
+            var cpugroup_comp = list_comp.GroupBy(gr => gr.CPU);            
+            foreach (var gr in cpugroup_comp)
             {
-                Console.WriteLine($"{nameGroup.Key}");
-                foreach (var lc in nameGroup)
+                Console.WriteLine(gr.Key);
+                foreach (var g in gr)
                 {
-                    Console.WriteLine($"{lc.Cod}, {lc.Brand} , {lc.CPU}, {lc.FrequencCPU}, {lc.DDR} , {lc.SSD}, {lc.Graphics}, {lc.Cost}, {lc.Count}");
-                }
+                    Console.WriteLine($"{g.Cod}, {g.Brand} , {g.CPU}, {g.FrequencCPU}, {g.DDR} , {g.SSD}, {g.Graphics}, {g.Cost}, {g.Count}");
+                }                1
             }
-            Console.WriteLine();            
+            1Console.WriteLine();
 
             Comp costmax_comp = list_comp.OrderBy(max => max.Cost).Last();
             Comp costmin_comp = list_comp.OrderBy(min => min.Cost).First();
